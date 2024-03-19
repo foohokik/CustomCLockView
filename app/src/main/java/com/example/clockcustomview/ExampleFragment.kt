@@ -28,7 +28,6 @@ class ExampleFragment : Fragment() {
         binding.btnNext.setOnClickListener {
             parentFragmentManager.beginTransaction()
                 .replace(R.id.fragmentContainerView, SecondExFragment())
-                .addToBackStack(null)
                 .commit()
         }
     }
