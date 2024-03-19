@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="ClockCustomView">
+        <attr name="frameColor" format="color"/>
+        <attr name="circleBackGroundColor" format="color"/>
+        <attr name="scaleColor" format="color"/>
+        <attr name="handColor" format="color"/>
+        <attr name="numbersColor" format="color"/>
+    </declare-styleable>
+
+</resources>
