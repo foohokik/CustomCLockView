@@ -9,6 +9,26 @@
 
     <com.example.clockcustomview.ClockView
         android:id="@+id/clockView2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center|top" />
+
+    <com.example.clockcustomview.ClockView
+        android:id="@+id/clockView3"
+        android:layout_width="132dp"
+        android:layout_height="125dp"
+        android:layout_gravity="center"
+        app:circleBackGroundColor="@color/white"
+        app:handColor="@color/green"
+        app:numbersColor="@color/red" />
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_marginTop="180dp"
+        android:text="NEXT" />
+
+
 </FrameLayout>

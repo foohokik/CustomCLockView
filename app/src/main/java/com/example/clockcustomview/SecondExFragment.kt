@@ -6,11 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.clockcustomview.databinding.FragmentExampleBinding
+import com.example.clockcustomview.databinding.FragmentSecondExBinding
 
 
-class ExampleFragment : Fragment() {
+class SecondExFragment : Fragment() {
 
-    private var _binding: FragmentExampleBinding? = null
+    private var _binding: FragmentSecondExBinding? = null
     private val binding get() = _binding!!
 
 
@@ -19,23 +20,19 @@ class ExampleFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentExampleBinding.inflate(inflater,container,false)
+        _binding = FragmentSecondExBinding.inflate(inflater,container,false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btnNext.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.fragmentContainerView, SecondExFragment())
-                .addToBackStack(null)
-                .commit()
-        }
+
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
 
 }

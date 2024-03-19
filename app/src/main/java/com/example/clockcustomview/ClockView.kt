@@ -71,13 +71,11 @@ constructor(
     private var contentRadius = 0f
     private var mWidth = 0
     private var mHeght = 0
-    private val textSize = 50f
+    private var textSize = 0f
     private val rect = Rect()
     private var hour = 0
     private var minute = 0
     private var second = 0
-
-
 
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
@@ -105,6 +103,7 @@ constructor(
         frameRadius = min(mWidth / 2f, mHeght / 2f)
         framePaint.strokeWidth = frameRadius / 7f
         contentRadius = frameRadius - framePaint.strokeWidth.toInt()
+        textSize = contentRadius/4f
 
         drawCircles(canvas)
         drawBackCircle(canvas)
@@ -179,7 +178,6 @@ constructor(
 
     private fun drawHourHand(canvas: Canvas, pos: Float) {
         handPaint.strokeWidth = 0.06f * frameRadius
-        handPaint.color = Color.BLACK
         val angle = (Math.PI * pos / 30 - Math.PI / 2).toFloat()
         canvas.drawLine(
             (cos(angle) * -frameRadius * 0.1f),
@@ -192,7 +190,6 @@ constructor(
 
     private fun drawMinuteHand(canvas: Canvas, pos: Float) {
         handPaint.strokeWidth = 0.03f * frameRadius
-        handPaint.color = Color.BLACK
         val angle = (Math.PI * pos / 30 - Math.PI / 2).toFloat()
         canvas.drawLine(
             (cos(angle) * -frameRadius * 0.15f),
@@ -205,7 +202,6 @@ constructor(
 
     private fun drawSecondHand(canvas: Canvas, pos: Float) {
         handPaint.strokeWidth = 0.015f * frameRadius
-        handPaint.color = Color.BLACK
         val angle = (Math.PI * pos / 30 - Math.PI / 2).toFloat()
         canvas.drawLine(
             (cos(angle) * -frameRadius * 0.25f),
@@ -223,33 +219,34 @@ constructor(
     }
 
 
-
-
-    @SuppressLint("ResourceAsColor")
-    private fun setAttrs () {
+    @SuppressLint("ResourceAsColor", "Recycle", "CustomViewStyleable")
+    private fun setAttrs() {
         val setXmlAttributes = context.obtainStyledAttributes(attrs, R.styleable.ClockCustomView)
 
         frameColor = setXmlAttributes.getColor(
             R.styleable.ClockCustomView_frameColor,
             ContextCompat.getColor(context, DEFAULT_COLOR)
-            )
+        )
 
         circleBackGroundColor = setXmlAttributes.getColor(
             R.styleable.ClockCustomView_circleBackGroundColor,
             ContextCompat.getColor(context, DEFAULT_BACKGROUND_COLOR)
-            )
+        )
 
         scaleColor = setXmlAttributes.getColor(
             R.styleable.ClockCustomView_scaleColor,
-            ContextCompat.getColor(context, DEFAULT_COLOR))
+            ContextCompat.getColor(context, DEFAULT_COLOR)
+        )
 
         numbersColor = setXmlAttributes.getColor(
             R.styleable.ClockCustomView_numbersColor,
-            ContextCompat.getColor(context, DEFAULT_COLOR))
+            ContextCompat.getColor(context, DEFAULT_COLOR)
+        )
 
         handColor = setXmlAttributes.getColor(
             R.styleable.ClockCustomView_handColor,
-            ContextCompat.getColor(context, DEFAULT_COLOR))
+            ContextCompat.getColor(context, DEFAULT_COLOR)
+        )
 
     }
 
